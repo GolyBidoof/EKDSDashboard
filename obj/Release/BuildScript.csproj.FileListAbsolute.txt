@@ -1,8 +1,8 @@
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\bin\Release\BuildScript.exe.config
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\bin\Release\BuildScript.exe
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\bin\Release\BuildScript.pdb
-C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.Form1.resources
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.Properties.Resources.resources
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.csproj.GenerateResource.Cache
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.exe
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.pdb
+C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.mainForm.resources

@@ -4,12 +4,12 @@ using System.IO;
 
 namespace BuildScript
 {
-    public partial class Form1 : Form
+    public partial class mainForm : Form
     {
         string path = System.IO.Path.Combine(Environment.GetFolderPath(
                Environment.SpecialFolder.MyDoc‌​uments), "EKDSID.ini");
 
-        public Form1()
+        public mainForm()
         {
             InitializeComponent();
             clockUpdateTimer = new Timer();
