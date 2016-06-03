@@ -46,7 +46,7 @@ namespace BuildScript
             {
                 writer.Write((Int32.Parse(build.Text) + 1).ToString());
             }
-            using (StreamWriter anotherwriter = new StreamWriter("changelog.txt", true))
+            using (StreamWriter anotherwriter = new StreamWriter("scripts/changelog.txt", true))
             {
                 anotherwriter.Write(Environment.NewLine
                     + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") 
@@ -55,8 +55,8 @@ namespace BuildScript
                     + " || " + textAdded.Text);
             }
             build.Text = (Int32.Parse(build.Text) + 1).ToString();
-            if (wiFiBox.Enabled==true) { System.Diagnostics.Process.Start("ndstool_close_wifi.bat");
-            } else { System.Diagnostics.Process.Start("ndstool_close.bat");
+            if (wiFiBox.Enabled==true) { System.Diagnostics.Process.Start("scripts/ndstool_close_wifi.bat");
+            } else { System.Diagnostics.Process.Start("scripts/ndstool_close.bat");
             }
             if (closeAfterBuilding.Checked == true)
             {
