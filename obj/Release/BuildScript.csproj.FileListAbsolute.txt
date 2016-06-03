@@ -6,3 +6,4 @@ C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.exe
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.pdb
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.mainForm.resources
+C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.csprojResolveAssemblyReference.cache
