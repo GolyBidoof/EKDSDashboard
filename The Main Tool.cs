@@ -27,7 +27,10 @@ namespace BuildScript
                     writer.Write(input.ToString());
                 }
             }
-            wb.Text += File.ReadAllLines(path)[0] + "!";
+            string[] motivatingTextsHeader = { "Hola", "Hiya", "Sup", "Aloha", "<yawn> oh hey", "Nice to see you" };
+            string[] motivatingTextsFooter = { "what you're up to today?", "so what change is it today?", "keep doing awesomeness!", "been a while.", "like the ol' good days, huh?", "what you're doing looks interesting..." };
+            Random randomisedNumber = new Random();
+            wb.Text = motivatingTextsHeader[randomisedNumber.Next(6)] + " " + File.ReadAllLines(path)[0] + ", " + motivatingTextsFooter[randomisedNumber.Next(6)];
             build.Text = (File.ReadAllLines("data/data/boot/build.bin"))[0];
         }
 
