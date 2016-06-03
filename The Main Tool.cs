@@ -8,7 +8,6 @@ namespace BuildScript
     {
         string path = System.IO.Path.Combine(Environment.GetFolderPath(
                Environment.SpecialFolder.MyDoc‌​uments), "EKDSID.ini");
-        //dis b gud for 100%
         public mainForm()
         {
             InitializeComponent();
@@ -32,7 +31,6 @@ namespace BuildScript
             Random randomisedNumber = new Random();
             wb.Text = motivatingTextsHeader[randomisedNumber.Next(6)] + " " + File.ReadAllLines(path)[0] + ", " + motivatingTextsFooter[randomisedNumber.Next(6)];
             build.Text = (File.ReadAllLines("data/data/boot/build.bin"))[0];
-            //dis has to work too
         }
 
         private void clockTimer_Elapsed(object sender, EventArgs e)
@@ -44,12 +42,10 @@ namespace BuildScript
         private void button1_Click(object sender, EventArgs e)
         {
             using (StreamWriter writer = new StreamWriter("data/data/boot/build.bin"))
-                //this is the number of the build, so it works
             {
                 writer.Write((Int32.Parse(build.Text) + 1).ToString());
             }
             using (StreamWriter anotherwriter = new StreamWriter("scripts/changelog.txt", true))
-                //changelog still gets pumped, so yeah
             {
                 anotherwriter.Write(Environment.NewLine
                     + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss")
@@ -66,7 +62,6 @@ namespace BuildScript
                 RedirectStandardInput = true,
                 UseShellExecute = false
             };
-            //oh boi xD Wait, I noticed the wifi bat didn't work, because it would encrypt the unenc file instead of t
             process.StartInfo = info;
             process.Start();
             process.StandardInput.WriteLine("cd scripts");
