@@ -55,7 +55,9 @@ namespace BuildScript
                     + " || " + textAdded.Text);
             }
             build.Text = (Int32.Parse(build.Text) + 1).ToString();
-            System.Diagnostics.Process.Start("ndstool_close.bat");
+            if (wiFiBox.Enabled==true) { System.Diagnostics.Process.Start("ndstool_close_wifi.bat");
+            } else { System.Diagnostics.Process.Start("ndstool_close.bat");
+            }
             if (closeAfterBuilding.Checked == true)
             {
                 Application.Exit();

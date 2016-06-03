@@ -37,6 +37,7 @@
             this.build = new System.Windows.Forms.TextBox();
             this.clockUpdateTimer = new System.Windows.Forms.Timer(this.components);
             this.closeAfterBuilding = new System.Windows.Forms.CheckBox();
+            this.wiFiBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // GENERATE
@@ -79,11 +80,11 @@
             this.wb.BackColor = System.Drawing.SystemColors.Control;
             this.wb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.wb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.wb.Location = new System.Drawing.Point(38, 142);
+            this.wb.Location = new System.Drawing.Point(5, 144);
+            this.wb.Multiline = true;
             this.wb.Name = "wb";
-            this.wb.Size = new System.Drawing.Size(198, 13);
+            this.wb.Size = new System.Drawing.Size(270, 26);
             this.wb.TabIndex = 6;
-            this.wb.Text = "Welcome back, ";
             this.wb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // build
@@ -102,18 +103,31 @@
             this.closeAfterBuilding.AutoSize = true;
             this.closeAfterBuilding.Checked = true;
             this.closeAfterBuilding.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.closeAfterBuilding.Location = new System.Drawing.Point(76, 173);
+            this.closeAfterBuilding.Location = new System.Drawing.Point(38, 176);
             this.closeAfterBuilding.Name = "closeAfterBuilding";
-            this.closeAfterBuilding.Size = new System.Drawing.Size(115, 17);
+            this.closeAfterBuilding.Size = new System.Drawing.Size(104, 17);
             this.closeAfterBuilding.TabIndex = 8;
-            this.closeAfterBuilding.Text = "Close after building";
+            this.closeAfterBuilding.Text = "Close afterwards";
             this.closeAfterBuilding.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // wiFiBox
+            // 
+            this.wiFiBox.AutoSize = true;
+            this.wiFiBox.Checked = true;
+            this.wiFiBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.wiFiBox.Location = new System.Drawing.Point(148, 176);
+            this.wiFiBox.Name = "wiFiBox";
+            this.wiFiBox.Size = new System.Drawing.Size(88, 17);
+            this.wiFiBox.TabIndex = 9;
+            this.wiFiBox.Text = "Wi-Fi support";
+            this.wiFiBox.UseVisualStyleBackColor = true;
+            // 
+            // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(280, 208);
+            this.Controls.Add(this.wiFiBox);
             this.Controls.Add(this.closeAfterBuilding);
             this.Controls.Add(this.build);
             this.Controls.Add(this.wb);
@@ -121,7 +135,7 @@
             this.Controls.Add(this.clock);
             this.Controls.Add(this.textAdded);
             this.Controls.Add(this.GENERATE);
-            this.Name = "Form1";
+            this.Name = "mainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -138,6 +152,7 @@
         private System.Windows.Forms.TextBox build;
         private System.Windows.Forms.Timer clockUpdateTimer;
         private System.Windows.Forms.CheckBox closeAfterBuilding;
+        private System.Windows.Forms.CheckBox wiFiBox;
     }
 }
 
