@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using LibErmiiKart.Discord;
+using LibErmiiKart.Encryption;
+
 
 namespace BuildScript
 {
     public partial class mainForm : Form
     {
-        string path = System.IO.Path.Combine(Environment.GetFolderPath(
+        readonly static string path = System.IO.Path.Combine(Environment.GetFolderPath(
                Environment.SpecialFolder.MyDoc‌​uments), "EKDSID.ini");
+        private Motivator motivator;
+
         public mainForm()
         {
             InitializeComponent();
@@ -17,6 +22,7 @@ namespace BuildScript
             clockUpdateTimer.Start();
             if (File.Exists(path))
             {
+
             }
             else
             {
@@ -26,10 +32,8 @@ namespace BuildScript
                     writer.Write(input.ToString());
                 }
             }
-            string[] motivatingTextsHeader = { "Hola", "Hiya", "Sup", "Aloha", "<yawn> oh hey", "Nice to see you" };
-            string[] motivatingTextsFooter = { "what you're up to today?", "so what change is it today?", "keep doing awesomeness!", "been a while.", "like the ol' good days, huh?", "what you're doing looks interesting..." };
-            Random randomisedNumber = new Random();
-            wb.Text = motivatingTextsHeader[randomisedNumber.Next(6)] + " " + File.ReadAllLines(path)[0] + ", " + motivatingTextsFooter[randomisedNumber.Next(6)];
+            motivator = new Motivator(path);
+            wb.Text = motivator.getMessage();
             build.Text = (File.ReadAllLines("data/data/boot/build.bin"))[0];
         }
 
@@ -67,14 +71,35 @@ namespace BuildScript
             process.StandardInput.WriteLine("cd scripts");
             if (wiFiBox.Enabled) {
                 process.StandardInput.WriteLine("ndstool_close_wifi.bat");
-
             } else {
                 process.StandardInput.WriteLine("ndstool_close.bat");
             }
+            process.WaitForExit();
+            if (discordBox.Checked)
+            {
+                string stringToBeSentToDiscord = ":warning: Hey guys, **" + File.ReadAllLines(path)[0] + "** just commited a new Ermii Kart DS build **#" + (build.Text).ToString() + "**!\nThe changes are as follows: " + textAdded.Text + "\n";
+                string[] emojiArray = new string[] { ":smile:", ":smiley:", ":grinning:", ":blush:", ":relaxed:", ":wink:", ":heart_eyes:", ":kissing_heart:", ":kissing_closed_eyes:", ":kissing:", ":kissing_smiling_eyes:", ":stuck_out_tongue_winking_eye:", ":stuck_out_tongue_closed_eyes:", ":stuck_out_tongue:", ":flushed:", ":grin:", ":pensive:", ":relieved:", ":unamused:", ":disappointed:", ":persevere:", ":cry:", ":joy:", ":sob:", ":sleepy:", ":disappointed_relieved:", ":cold_sweat:", ":sweat_smile:", ":sweat:", ":weary:", ":tired_face:", ":fearful:", ":scream:", ":angry:", ":rage:", ":triumph:", ":confounded:", ":laughing:", ":yum:", ":mask:", ":sunglasses:", ":sleeping:", ":dizzy_face:", ":astonished:", ":worried:", ":frowning:", ":anguished:", ":smiling_imp:", ":imp:", ":open_mouth:", ":grimacing:", ":neutral_face:", ":confused:", ":hushed:", ":no_mouth:", ":innocent:", ":smirk:", ":expressionless:", ":man_with_gua_pi_mao:", ":man_with_turban:", ":cop:", ":construction_worker:", ":guardsman:", ":baby:", ":boy:", ":girl:", ":man:", ":woman:", ":older_man:", ":older_woman:", ":person_with_blond_hair:", ":angel:", ":princess:", ":japanese_ogre:", ":japanese_goblin:", ":skull:", ":alien:", ":poop:", ":man_with_turban:", ":man_with_turban::skin-tone-1:", ":man_with_turban::skin-tone-2:", ":man_with_turban::skin-tone-3:", ":man_with_turban::skin-tone-4:", ":man_with_turban::skin-tone-5:" };
+                Random emojiRND = new Random();
+                stringToBeSentToDiscord += emojiArray[emojiRND.Next(emojiArray.Length)];
+                Classes.InteractWithDiscord.Interact(stringToBeSentToDiscord);
+            }
+            byte[] ekds_rom = File.ReadAllBytes("scripts/output_unenc (AltWfc).nds");
+            File.Create("output.nds").Close();
+            File.WriteAllBytes("output.nds", EKRomEncryptor.EncryptRom(ekds_rom));
             if (closeAfterBuilding.Checked)
             {
                 Application.Exit();
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void botRTF_Click(object sender, EventArgs e)
+        {
+            Classes.InteractWithDiscord.Interact(botTextBox.Text);
         }
     }
 }

@@ -7,3 +7,6 @@ C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.pdb
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.mainForm.resources
 C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\obj\Release\BuildScript.csprojResolveAssemblyReference.cache
+C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\bin\Release\LibErmiiKart.dll
+C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\bin\Release\ServiceStack.Text.dll
+C:\Users\szymb\Documents\Visual Studio 2015\Projects\BuildScript\BuildScript\bin\Release\websocket-sharp.dll
